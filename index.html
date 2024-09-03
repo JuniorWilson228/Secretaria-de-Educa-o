@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretaria da Educação - Solonópole</title>
+
+    <!-- CORES: VERDE: 2A9E7C -->
+    <!-- Cores: roxo: 7B5193 -->
+    <!--cores: amarelo: D7AA2C -->
+ 
+    <style>
+        /* Reset de Estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos Gerais */
+        body { /* background-color: #f4f4f4;*/
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-image: url("https://img.freepik.com/vetores-gratis/plano-de-fundo-padrao-de-educacao-em-estilo-doodle_53876-115365.jpg");
+         
+        }
+
+        header {
+            color: #fff;
+         
+           
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0px;
+            text-align: center;
+         
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+         
+
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        nav ul li :hover{
+            color: white;
+            border-bottom: 3px solid white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #7B5193;
+            margin-bottom: 20px;
+         
+        }
+
+        .container .section p {
+            color: black;
+            font-weight: 30px;
+        }
+
+        footer {
+            background: #D7AA2C;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+         
+            bottom: 0;
+            width: 100%;
+        }
+        nav{
+
+            background-image: linear-gradient(to right, #7B5193, #4e335d)
+        }
+        .cabeçalho{
+            background-image: linear-gradient(to left,#2A9E7C ,#4b9981,#D7AA2C 80%);
+   
+            padding: 20px;
+
+        }
+
+        /* Adições do cod de junior*/
+
+       .container {
+            width: 100%;
+            margin: 5px auto;
+            padding: 20px;
+
+        }
+        .section {
+            margin-bottom: 0px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+
+            background-color: rgba(215, 170, 44);
+         
+
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        }
+        .section img {
+            width: 22%;
+            margin: 1%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+            margin-top: 20px;
+         
+        }
+        .overlay { /* rgba(233, 228, 228, 0.15)*/
+            background: rgba(215, 170, 44);
+            padding: 20px;
+            border-radius: 10px;
+        }
+     
+         .section p {
+            color: black;
+            text-align: center;
+         
+         }
+         button{
+            background-color: #7B5193 ; 
+            border-radius: 10px; 
+            height: 40px; 
+            width: 110px; 
+            font-size: 20px; 
+            font-weight: bold; 
+            color: white; 
+            border: none; 
+            margin-top: 30px;
+            box-shadow: 2.5px 2px 1px rgba(0, 0, 0, 0.5);
+         }
+         button:active{
+         background-color: #7B5193;
+  		 box-shadow:3px 3px 5px rgba(0, 0, 0, 0.5);
+  		 transform: translateY(4px);
+         
+         }
+
+         /* Carousel cod */
+.carousel-container {
+         position: relative;
+         max-width: 100%;
+         overflow: hidden;
+         margin: 20px auto;
+         padding: 0 10px; /* Adiciona um pouco de espaçamento nas laterais */
+     }
+     .carousel {
+         display: flex;
+         overflow-x: auto;
+         scroll-behavior: smooth;
+         -ms-overflow-style: none; /* Oculta a barra de rolagem no Internet Explorer e Edge */
+         scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+     }
+     .carousel::-webkit-scrollbar {
+         display: none; /* Oculta a barra de rolagem no Chrome, Safari e Opera */
+     }
+     .carousel-item {
+         flex: 0 0 auto;
+         width: 300px;
+         margin-right: 10px;
+         background: #7b5193f2;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         border-radius: 10px;
+         overflow: hidden;
+         display: flex;
+         align-items: center;
+     }
+     .carousel-item img {
+         width: 175px;
+         height: 150px;
+         display: block;
+         margin-right: 10px;
+     }
+     .carousel-item p {
+         padding: 10px;
+         flex: 1;
+         color: white;
+        font-weight: 600;
+        text-align: center;
+     }
+     @media (min-width: 601px) {
+         .carousel-button {
+             display: none; /* Oculta os botões no computador */
+         }
+     }
+
+    </style>
+    <script>
+      // Função para rolar o carrossel
+      function scrollCarousel(direction) {
+          const carousel = document.getElementById('carousel');
+          const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+          const containerWidth = carousel.offsetWidth;
+          const maxScrollLeft = carousel.scrollWidth - containerWidth;
+          let newScrollLeft = carousel.scrollLeft + (direction * itemWidth);
+         
+          if (newScrollLeft < 0) newScrollLeft = 0;
+          if (newScrollLeft > maxScrollLeft) newScrollLeft = maxScrollLeft;
+         
+          carousel.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
+      }
+   
+   
+      // Adiciona suporte para rolagem com o mouse no carrossel
+      document.addEventListener('DOMContentLoaded', function () {
+          const carousel = document.getElementById('carousel');
+          let isDragging = false;
+          let startX, scrollLeft;
+         
+          carousel.addEventListener('mousedown', (e) => {
+              isDragging = true;
+              startX = e.pageX - carousel.offsetLeft;
+              scrollLeft = carousel.scrollLeft;
+          });
+         
+          carousel.addEventListener('mouseleave', () => {
+              isDragging = false;
+          });
+         
+          carousel.addEventListener('mouseup', () => {
+              isDragging = false;
+          });
+         
+          carousel.addEventListener('mousemove', (e) => {
+              if (!isDragging) return;
+              e.preventDefault();
+              const x = e.pageX - carousel.offsetLeft;
+              const walk = (x - startX) * 2; // Ajuste a velocidade do scroll
+              carousel.scrollLeft = scrollLeft - walk;
+          });
+         
+          // Adiciona suporte para toques no carrossel
+          let startXTouch;
+         
+          carousel.addEventListener('touchstart', function (e) {
+              startXTouch = e.touches[0].clientX;
+          });
+           carousel.addEventListener('touchend', function (e) {
+              const endXTouch = e.changedTouches[0].clientX;
+              const swipeDistance = endXTouch - startXTouch;
+               if (Math.abs(swipeDistance) > 50) {
+                  if (swipeDistance < 0) {
+                      scrollCarousel(1);
+                  } else {
+                      scrollCarousel(-1);
+                  }
+              }
+          });
+         
+          // Adiciona rolagem com a roda do mouse
+          carousel.addEventListener('wheel', (e) => {
+              e.preventDefault();
+              carousel.scrollLeft += e.deltaY;
+          });
+      });
+   </script>
+</head>
+<body>
+
+
+    <header>  
+        <div class="cabeçalho">
+       <a href="https://www.solonopole.ce.gov.br/"> <img src="https://u1.padletusercontent.com/uploads/padlet-uploads/2501837654/5c1368c63c2fc48d4038b0485701b377/link75__1_.jpg?token=0Mdy3G6piCoaU0M0y2_EYcORCXT7Q2XQgdFxCwc7ocA0PoDTWFSIJ8A2EcKpe7yUcRuJr6Whs3mc8Ii-GgK85PnFODE5hP-10BP9uCMNqI1-7vOlhOivDSGXjVUFNOvjgEWB5l5OOORR-Fm7tWOwkUarjXgCpV1cQK6Vp-6KnCMojJduKfqBYwZS6sam5imyoD2_m9y6T-wnZO_ceCxxDy4Fd1k55_TwdbSkdJesJnD-w_xXJyezVtmKRTlDvzWc" width="70px" height="50px" style="float: left" > </a>
+        <h1>Secretaria Municipal da Educação</h1>
+         </div>
+        <nav>
+            <ul>
+                <li><a href="#Sobre">Sobre</a></li>
+                <li><a href="#Serviços">Serviços</a></li>
+                <li><a href="#Escolas">Escolas</a></li>
+                <li><a href="#Contato">Contato</a></li>
+             
+            </ul>
+        </nav>
+    </header>
+    <main>
+   
+
+       <div class="container"> <!-- Sobre -->
+        <div id="Sobre" class="section">
+            <div class="overlay">
+                <h2>Sobre</h2>
+                <p>
+                    A missão da Secretaria Municipal da Educação de Solonópole é garantir educação básica de qualidade para crianças, jovens e adultos no município, fortalecendo a gestão democrática na rede pública de ensino e assegurando a manutenção das escolas conforme padrões de qualidade estabelecidos.
+                </p>
+                <div>
+                    <ul style="list-style: none; background-color: #7B5193; border-radius: 10px; color: white;font-weight: bold; margin-top: 30px ; ">
+                        <li><img style="border-radius: 50%; width: 4vw; height: 4vw; border: solid;border-width: 2px; margin-bottom: 0px;" src="https://u1.padletusercontent.com/uploads/padlet-uploads/2501837654/1f65cb06f8dc2a76fb64ee20e5b41f8f/Screenshot_20240628_160801_Chrome.jpg?token=0Mdy3G6piCoaU0M0y2_EYcORCXT7Q2XQgdFxCwc7ocA0PoDTWFSIJ8A2EcKpe7yUcRuJr6Whs3mc8Ii-GgK85PnFODE5hP-10BP9uCMNqI1-7vOlhOivDSGXjVUFNOvjjgXfqj31FGmXb7s8LaAdwEB8gPy6sIz7YDJfyopqOJDZbKHFCidDCdslYZru-hqu7gFzc5PwEAJ55VgV3IZk_IHlEn2iuIgoZP9uqO0lfi_-mzMTSl43-MtyydNILjeDOZeJTxhUQPwTzjn952NYvQ==" alt="José Celio Pinheiro"> </li>    
+                   
+                    <li style="text-align:center; font-size: 15px;">José Célio Pinheiro
+                        <br> Secretário
+                    </li>
+                   </ul>
+                   
+                </div>
+             
+            </div>
+        </div>
+      </div>
+
+       <div class="container"> <!--Serviços-->
+          <div id="Serviços" class="section">
+            <div class="overlay">
+                <h2>Serviços</h2>
+                <p>
+                    A Secretaria de Educação de Solonópole cuida das escolas municipais, gerencia recursos, planeja políticas educacionais, capacita professores e acompanha o desenvolvimento dos alunos.
+                </p>
+                <img src="https://via.placeholder.com/400x300" alt="Sala de aula do Ensino Fundamental">
+                <img src="https://via.placeholder.com/400x300" alt="Alunos do Ensino Fundamental">
+                <img src="https://via.placeholder.com/400x300" alt="Atividades no Ensino Fundamental">
+                <img src="https://via.placeholder.com/400x300" alt="Projetos no Ensino Fundamental">
+                <br>
+                <button class="button">Ver mais</button>
+            </div>
+        </div>
+      </div>
+
+       <!-- <section id="servicos">
+            <h2>Serviços</h2>
+            <ul>
+                <li>Matrículas</li>
+                <li>Grade Curricular</li>
+                <li>Calendário Acadêmico</li>
+                <li>Eventos</li>
+            </ul>
+            <img src="servicos.jpg" alt="Serviços">
+        </section> -->
+
+        <div class="container"> <!--Escolas-->
+            <div id="Escolas">
+                <div class="overlay" style="text-align: center;">
+                    <h2>Escolas</h2>
+                    <p>
+                        Solonópole conta com X instituições de ensino que se dedicam à educação dos alunos, proporcionando um ambiente de aprendizado e desenvolvimento. Essas instituições trabalham com empenho para formar cidadãos preparados para os desafios do futuro, contribuindo para o crescimento e a formação da comunidade local.
+                    </p>
+
+
+                  <div class="carousel-container">
+                        <div class="carousel" id="carousel">
+                           <div class="carousel-item">
+                              <img src="https://u1.padletusercontent.com/uploads/padlet-uploads/2501837654/1c7b7a5376aaaf7019a0634ec7e06dee/20240815_090613.jpg?token=0Mdy3G6piCoaU0M0y2_EYcORCXT7Q2XQgdFxCwc7ocA0PoDTWFSIJ8A2EcKpe7yUcRuJr6Whs3mc8Ii-GgK85PnFODE5hP-10BP9uCMNqI1-7vOlhOivDSGXjVUFNOvjjqKqHGxHOi2DQgIQ7Kjia20D9KH4UuHanCh07kAhDmta26pXSq4_4vQ5Ff_77iTE2qhMccoXssDKBhG-SS9A-03LNSgaRBONSEbjhxtHhNO17pqGBJBi52Q6UDhGlvfu" alt="Imagem 1">
+                              <p>Escola <br>Bom Jesus</p>
+                           </div>
+                           <div class="carousel-item">
+                              <img src="https://u1.padletusercontent.com/uploads/padlet-uploads/2501837654/210805865f285e500a89e040d2d36f04/20240821_103900.jpg?token=0Mdy3G6piCoaU0M0y2_EYcORCXT7Q2XQgdFxCwc7ocA0PoDTWFSIJ8A2EcKpe7yUcRuJr6Whs3mc8Ii-GgK85PnFODE5hP-10BP9uCMNqI1-7vOlhOivDSGXjVUFNOvjGHUQcmcar_kecauZ1_irlHj3wc4ak0uSzmxRJDoukLhUxDqwkGCPVQr7Hzrt3kC2bAmEXfI0RiMnXOFddFmvJUlQ360JiXgYpcZxgEoF3jzXntlvoN8D6ZlzzEKgknfU" alt="Escola Mundoca Moreira">
+                              <p>Escola Mundoca Moreira</p>
+                           </div>
+                           <div class="carousel-item">
+                             <a href="https://solonconect.com/josi-laudir"> <img src="https://u1.padletusercontent.com/uploads/padlet-uploads/2501837654/d74844dbb22d157721fb9d12118a7567/Creche_jose_laudir.jpg?token=0Mdy3G6piCoaU0M0y2_EYcORCXT7Q2XQgdFxCwc7ocA0PoDTWFSIJ8A2EcKpe7yUcRuJr6Whs3mc8Ii-GgK85PnFODE5hP-10BP9uCMNqI1-7vOlhOivDSGXjVUFNOvjG2UI7fDyU_qTQ9XuTSb-w0VyjvDCzpKGRbDwlRx6jM-VgScxZnn-JrEhbe3mRED9itBJx0cmPK5ihW1y8dm9zgK1d7ymhui7R97KKIoNPoXrLcRbkrJ5XBfY9yizNcJk" alt="Creche José Laudir"> </a>
+                              <p>Creche José Laudir</p>
+                           </div>
+                           <div class="carousel-item">
+                              <img src="https://u1.padletusercontent.com/uploads/padlet-uploads/2501837654/a5327ddbc292aea02a7e8f1a26eaca75/20240828_112533.jpg?token=0Mdy3G6piCoaU0M0y2_EYcORCXT7Q2XQgdFxCwc7ocA0PoDTWFSIJ8A2EcKpe7yUcRuJr6Whs3mc8Ii-GgK85PnFODE5hP-10BP9uCMNqI1-7vOlhOivDSGXjVUFNOvjs7agS4LBMeym9gCd-XCxG2VPj_edeVc51rDUN8t2KPfmoR1p0rv2PQhYtMC6vCh3eQjaSqUFzFYrdmqfTtNEC5uFHK_nAu8c5UQ2-k4kgoUyf1BjG7_swoXNSaNAspMf" alt="Escola Maria Nezite Nogueira">
+                              <p>Escola Maria Nezite Nogueira</p>
+                           </div>
+                           <div class="carousel-item">
+                                 <img src="https://via.placeholder.com/150" alt="Imagem 5">
+                                 <p>Foto da creche redireciona para site</p>
+                              </div>
+                              <div class="carousel-item">
+                                 <img src="https://via.placeholder.com/150" alt="Imagem 6">
+                                 <p>Escola</p>
+                              </div>
+                        </div>
+                     </div>
+
+
+                </div>
+            </div>
+        </div>
+   
+
+      <div class="container"> <!--Contato-->
+         <div id="Contato" class="section">
+             <div class="overlay">
+
+            <h2>Contato</h2>
+            <address style="font-size: 80%;">
+             
+
+                ENDEREÇO: R. DEP. ALFREDO BARREIRA FILHO, N° 35 - R. DEP. ALFREDO BARREIRA FILHO, Nº 35 - BAIRRO SIMIÃO MACHADO - CEP: 63.620-000, SOLON<br>
+                TELEFONE: (88) 3518-1387 <br>
+                EMAIL: sme@solonopole.ce.gov.br <br>
+                HORÁRIO: das 07:30 às 11:30 e das 13:30 às 17:00
+
+            </address>
+         </div>
+      </div>
+    </div>
+
+
+
+    </main>
+ 
+    <footer>
+        <p style="color: white">&copy; Ronald Barreto - 2024 Secretaria Municipal da Educação de Solonópole</p>
+    </footer>
+</body>
+</html>
